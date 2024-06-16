@@ -23,7 +23,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "swo.hpp"
+#include "debug.hpp"
+#include <string>
+#include <vector>
 
 /* USER CODE END Includes */
 
@@ -90,7 +92,42 @@ int main(void)
   MX_GPIO_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-  printString("Hello, World!\n");
+
+  std::vector<int> vec_int = {1, 2, 3, 4, 5};
+  swoTerminal << "Vector<int>: " << vec_int << std::endl;
+
+  std::vector<std::string> vec_str = {"1a", "2b", "3c", "4d", "5e"};
+  swoTerminal << "Vector<string>: " << vec_str << std::endl;
+
+  uint8_t b = 2;
+  swoTerminal << "uint8_t: " << b << std::endl;
+
+  int8_t c = -5;
+  swoTerminal << "int8_t: " << c << std::endl;
+
+  uint16_t d = 65535;
+  swoTerminal << "uint16_t: " << d << std::endl;
+
+  int16_t e = -32768;
+  swoTerminal << "int16_t: " << e << std::endl;
+
+  uint32_t f = 4294967295U;
+  swoTerminal << "uint32_t: " << f << std::endl;
+
+  int32_t g = -2147483648;
+  swoTerminal << "int32_t: " << g << std::endl;
+
+  uint64_t h = 18446744073709551615ULL;
+  swoTerminal << "uint64_t: " << h << std::endl;
+
+  int64_t i = -9223372036854775807LL - 1;
+  swoTerminal << "int64_t: " << i << std::endl;
+
+  float j = 3.14f;
+  swoTerminal << "float: " << j << std::endl;
+
+  double k = 2.71828;
+  swoTerminal << "double: " << k << std::endl;
 
   /* USER CODE END 2 */
 
