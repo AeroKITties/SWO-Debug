@@ -6,7 +6,7 @@
             "request": "launch",
             "name": "Debug (J-Link)",
             "cwd": "${workspaceRoot}",
-            "executable": "./nycleo-f411/build/Debug/nucleo-f411.elf",
+            "executable": "./nucleo-f411/build/Debug/nucleo-f411.elf",
             "servertype": "jlink",
             "device": "STM32F411RE",
             "gdbTarget": "localhost:50000",
