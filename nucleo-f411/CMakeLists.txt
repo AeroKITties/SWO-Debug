@@ -40,6 +40,9 @@ add_executable(${CMAKE_PROJECT_NAME})
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)
 
+set(OUTSIDE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../")
+add_subdirectory(${OUTSIDE_SOURCE_DIR} ${CMAKE_BINARY_DIR}/build_tmp)
+
 # Link directories setup
 target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined library search paths
@@ -47,13 +50,10 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
-    ./../swo.cpp
-    ./../debug.cpp
 )
 
 # Add include paths
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
-    ./../
 )
 
 # Add project symbols (macros)
@@ -64,6 +64,7 @@ target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE
 # Add linked libraries
 target_link_libraries(${CMAKE_PROJECT_NAME}
     stm32cubemx
+    swo-debug
 
     # Add user defined libraries
 )
